@@ -53,32 +53,38 @@ Figure -02 HALF Subtractor
 Developed by: BHAVATHARANI S
 RegisterNumber:212223230032
 
-
+** Half adder**
 ```
-//NAND,NOR and XNOR gates
-module egx3(a,b,c,d,e,x,y,z);
+module half_adder(a,b,sum,carry);
 input a,b;
-output c,d,e,x,y,z;
-and(c,a,b);
-or(d,a,b);
-xor(e,a,b);
-nand(x,a,b);
-nor(y,a,b);
-xnor(z,a,b);
+output sum,carry; 
+assign sum = a^b;
+assign carry = a & b;
 endmodule
 ```
-![Screenshot 2024-03-18 091013](https://github.com/bhavatharanisiva7418/HALF_ADDER_SUBTRACTOR/assets/147473922/f0440553-968b-4bfc-8666-724a0c0556ca)
+**Half subtractor**
+```
+module halfsub_top(a,b,D,Bo);
+input a,b;
+output D,Bo; // Outputs sum and carry for half adder:Outputs difference D,Borrow Bo for half subtractor
+assign D = a ^ b;
+  assign Bo = ~a & b;
+endmodule
+```
 
 
 **RTL Schematic**
 
-![Screenshot 2024-03-18 100809](https://github.com/bhavatharanisiva7418/HALF_ADDER_SUBTRACTOR/assets/147473922/90c73c04-58e0-4419-8381-44a6ddf715ba)
+![image](https://github.com/bhavatharanisiva7418/HALF_ADDER_SUBTRACTOR/assets/147473922/75703532-0b86-42a4-9f87-8c0570911b91)
+
 
 
 **Output/TIMING Waveform**
+**Half adder**
+![image](https://github.com/bhavatharanisiva7418/HALF_ADDER_SUBTRACTOR/assets/147473922/c3de5b03-cc6d-4626-a8a8-ec772affe819)
 
-![Screenshot 2024-03-18 101144](https://github.com/bhavatharanisiva7418/HALF_ADDER_SUBTRACTOR/assets/147473922/83eb9fff-bb6b-43c6-9f46-270dbe4d702f)
-
+**Half subtractor**
+![image](https://github.com/bhavatharanisiva7418/HALF_ADDER_SUBTRACTOR/assets/147473922/2ce3b77f-9026-4b6a-aee7-a0b888278ddb)
 
 **Result:**
 Implementation of Half-Adder and Half-Subtractor circuit was successfully verified.
